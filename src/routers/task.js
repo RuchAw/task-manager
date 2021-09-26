@@ -44,10 +44,15 @@ router.patch("/tasks/:id", async (req,res)=>{
 
     if (!isValidOperation) return res.status(400).send({error: "Updates are not allowed !"})
 
-    try{
-        const task = await Task.findByIdAndUpdate(req.params.id,req.body, {new: true, runValidators: true})
+    try{     
+        const task = await Task.findById(req.params.id)
 
         if (!task) return res.status(404).send()
+
+        updates.forEach((update)=>{
+            task[update]=req.body[update]
+        })
+        await task.save()
 
         res.send(task)
     }catch(error){
