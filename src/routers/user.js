@@ -1,6 +1,7 @@
 const express=require("express")
 const router= new express.Router()
 const User=require("../models/user")
+const auth=require("../middleware/auth")
 
 router.post("/users", async(req,res)=>{
     const user= new User(req.body)
@@ -24,14 +25,36 @@ router.post("/users/login", async(req,res)=>{
     }
 })
 
-router.get("/users", async(req,res)=>{
+router.get("/users/me", auth, async(req,res)=>{
+    res.send(req.user)
+})
+
+router.post("/users/logout", auth, async(req,res)=>{
     try{
-        const users= await User.find({})
-        res.status(200).send(users)
+        req.user.tokens = req.user.tokens.filter((token)=>{
+            return token.token !== req.token
+        })
+
+        await req.user.save()
+
+        res.send()
     }catch(err){
         res.status(500).send()
     }
 })
+
+router.post("/users/logoutALL", auth, async (req,res)=>{
+    try{
+        req.user.tokens=[]
+
+        await req.user.save()
+
+        res.send()
+    }catch(err){
+        res.status(500).send()
+    }
+})
+
 
 router.get("/users/:id", async(req,res)=>{
     const _id=req.params.id
