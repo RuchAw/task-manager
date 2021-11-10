@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Update user</title>
+    <link rel="icon" href="/img/tasks.png">
+
+    <script type="text/javascript">
+        window.addEventListener( "pageshow", function ( event ) {
+        var historyTraversal = event.persisted || 
+            ( typeof window.performance != "undefined" && window.performance.navigation.type === 2 )
+        if ( historyTraversal ) {
+        window.location.reload()
+        }
+        })
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        {{>header}}
+        <div class="updates">
+            <div class="options">
+                <div class="update newUsername"></div>
+                <div class="update ageModify"></div>
+                <div class="update newPassword"></div>
+                <div class="update logOutAll"></div>
+                <div class="update deleteUser"></div>
+            </div>
+            <div class="updateContent main">
+                <div class="optionsText">Please select an option to update</div>
+            </div>
+            <div class="updateContent newUsernameColor hide">
+                <div>Update Username</div>
+                <form>
+                    <input type="text" id="newUsernameInput" name="newUsername" placeholder="New username" autocomplete="off"><br>
+                    <input type="submit" value="Update" id="updateUsernameButton"><br>
+                </form>
+            </div>
+            <div class="updateContent ageModifyColor hide">
+                <div>Update Age</div>
+                <form>
+                    <input type="number" min=0 id="ageModifyInput" name="ageModify" placeholder="age"><br>
+                    <input type="submit" value="Update" id="ageModifyButton"><br>
+                </form>
+            </div>
+            <div class="updateContent newPasswordColor hide">
+                <div>Update Password</div>
+                <form>
+                    <input type="password" id="newPasswordInput" name="newPassword" placeholder="New Password"><br>
+                    <input type="password" id="newPasswordInputConfirm" name="newPasswordConfirm" placeholder="Confirm your password"><br>
+                    <input type="submit" value="Update" id="updatePasswordButton"><br>
+                </form>
+            </div>
+            <div class="updateContent logOutAllColor hide">
+                <div>LogOut from all devices</div>
+                <form>
+                    <input type="submit" id="logOutAllbutton" value=" ">
+                </form>
+                
+            </div>
+            <div class="updateContent deleteUserColor hide">
+                <div>Delete user</div>
+                <form>
+                    <input type="submit" id="deleteUserButton" value=" ">
+                </form>
+            </div>
+        </div>
+        
+        <div class="disconnect">
+        <form method="POST" action="/signOut">
+            <input type="submit" name="signOut" value="Disconnect">
+        </form>
+    </div>
+    </div>
+
+    <script src="/js/updateUser.js"></script>
+</body>
+</html>

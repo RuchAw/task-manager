@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Welcome page</title>
+    <link rel="icon" href="/img/tasks.png">
+</head>
+<body>
+    <div class="wrapper">
+    {{>header}}
+    <form class="registerForm" method="POST">
+        <label for="username">Username<span style="color: brown;">*</span></label><br>
+        <input type="text" id="username" name="username" placeholder="Username"><br>
+        <label for="email">Email<span style="color: brown;">*</span></label><br>
+        <input type="email" id="email" name="email" placeholder="Exemple@domain.com"><br>
+        <label for="password">Password<span style="color: brown;">*</span></label><br>
+        <input type="password" id="password" name="password" placeholder="Password"><br>
+        <label for="age">Age</label><br>
+        <input type="number" id="age" name="age" placeholder=0 value=0><br>
+        <input type="submit" value="Create user"><br>
+        <label style="color: brown;">{{signUpMessage}}</label>
+    </form>
+    {{!-- {{>footer}} --}}
+    </div>
+</body>
+</html>

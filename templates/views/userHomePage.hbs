@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Welcome page</title>
+    <link rel="icon" href="/img/tasks.png">
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+
+    <script type="text/javascript">
+        window.addEventListener( "pageshow", function ( event ) {
+        var historyTraversal = event.persisted || 
+            ( typeof window.performance != "undefined" && window.performance.navigation.type === 2 )
+        if ( historyTraversal ) {
+        window.location.reload()
+        }
+        })
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+    {{>header}}
+    <div class="content">
+    <aside class="userStatus">
+        <img src="/img/defaultUser.png" class="defaultUserImg"><br>
+        <form class="avatarForm" method="POST">
+            <label for="uploadPicture"><img src="/img/Camera.png" class="changeAvatar"></label><br>
+            <input type="file" value ="" id="uploadPicture" name="uploadPicture" style="display: none;" accept="image/png, image/jpeg, image/jpg"/>
+        </form>
+        <div class="userName">{{user}}</div>
+        <div class="line"> </div>
+        <div class="info age">Age: {{age}}</div>
+        <div class="info pendingTasks">Pending tasks: {{uncompletedTasks}}</div>
+        <div class="info joinedOn">Joined on: {{joinedOn}}</div>
+        <div class="line"> </div>
+        <div class="info">Update user informations</div>
+        <button id="updateUser"></button>
+    </aside>
+    <div class="spaceBetween"></div>
+    <section class="tasksResume">
+        <div class="sectionTitle">Tasks</div>
+        <div class="statusResume">
+            <div class="state complete"></div>
+            <div class="state pending"></div>
+        </div>
+    </section>
+    </div>
+    <div class="disconnect">
+        <form method="POST" action="/signOut">
+            <input type="submit" name="signOut" value="Disconnect">
+        </form>
+    </div>
+    </div>
+    <script src="/js/app.js"></script>
+    <script src="/js/userHomePage.js"></script>
+
+    
+
+</body>
+</html>
