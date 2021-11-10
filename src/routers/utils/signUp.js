@@ -10,7 +10,7 @@ const signingup = async(username,email,password,age=0)=>{
       
       const config = {
         method: 'post',
-        url: 'http://localhost:3000/users',
+        url: 'https://ruchaw-tasks-manager.herokuapp.com/users',
         headers: { 
           'Content-Type': 'application/json'
         },

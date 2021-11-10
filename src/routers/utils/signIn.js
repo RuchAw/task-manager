@@ -11,7 +11,7 @@ const signIn= async(email,password)=>{
       
       const config = {
         method: 'post',
-        url: 'http://localhost:3000/users/login',
+        url: 'https://ruchaw-tasks-manager.herokuapp.com/users/login',
         headers: { 
           'Content-Type': 'application/json'
         },

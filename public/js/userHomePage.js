@@ -15,7 +15,7 @@ const fetchTasks= async()=>{
     redirect: 'follow'
     }
     try{
-        const response = await fetch("http://localhost:3000/tasks", requestOptions)
+        const response = await fetch("https://ruchaw-tasks-manager.herokuapp.com/tasks", requestOptions)
         const result= await response.text()
         const tasks=JSON.parse(result)
         uncompletedTasks=tasks.filter(task => task.completed === false)
@@ -31,13 +31,13 @@ const fetchTasks= async()=>{
 fetchTasks()
 
 pending.addEventListener("click",()=>{
-    location.href="http://localhost:3000/userTasks"
+    location.href="https://ruchaw-tasks-manager.herokuapp.com/userTasks"
 })
 
 complete.addEventListener("click",()=>{
-    location.href="http://localhost:3000/userTasks"
+    location.href="https://ruchaw-tasks-manager.herokuapp.com/userTasks"
 })
 
 updateUser.addEventListener("click",()=>{
-    location.href="http://localhost:3000/userUpdate"
+    location.href="https://ruchaw-tasks-manager.herokuapp.com/userUpdate"
 })

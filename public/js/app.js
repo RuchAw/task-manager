@@ -28,7 +28,7 @@ uploadPicture.onchange=()=>{
     redirect: 'follow'
     }
 
-    fetch("http://localhost:3000/users/me/avatar", requestOptions)
+    fetch("https://ruchaw-tasks-manager.herokuapp.com/users/me/avatar", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error))
@@ -49,7 +49,7 @@ window.addEventListener("load",async ()=>{
     }
 
     try{
-        const response = await fetch(`http://localhost:3000/users/${id}/avatar`, requestOptions)
+        const response = await fetch(`https://ruchaw-tasks-manager.herokuapp.com/users/${id}/avatar`, requestOptions)
         
         if(!response.ok) throw new Error(response.status)
         else{
@@ -75,7 +75,7 @@ window.addEventListener("load",async()=>{
     }
 
     try{
-        const response = await fetch(`http://localhost:3000/users/me`, requestOptions)
+        const response = await fetch(`https://ruchaw-tasks-manager.herokuapp.com/users/me`, requestOptions)
             const userJson= await response.text()
             const user= JSON.parse(userJson)
 

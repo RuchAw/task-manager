@@ -4,7 +4,7 @@ const axios = require('axios')
 const signOut = async(token)=>{
     const config = {
         method: 'post',
-        url: 'http://localhost:3000/users/logout',
+        url: 'https://ruchaw-tasks-manager.herokuapp.com/users/logout',
         headers: { 
           'Authorization':  `Bearer ${token}`
         }

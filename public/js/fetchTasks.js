@@ -27,7 +27,7 @@ const fetchTasks= async()=>{
     redirect: 'follow'
     }
     try{
-        const response = await fetch("http://localhost:3000/tasks", requestOptions)
+        const response = await fetch("https://ruchaw-tasks-manager.herokuapp.com/tasks", requestOptions)
         const result= await response.text()
         const tasks=JSON.parse(result)
         
@@ -96,7 +96,7 @@ createTaskButton.addEventListener("click",async(e)=>{
         redirect: 'follow'
         }
 
-        const response = await fetch("http://localhost:3000/tasks", requestOptions)
+        const response = await fetch("https://ruchaw-tasks-manager.herokuapp.com/tasks", requestOptions)
         const result= await response.text()
         const task=JSON.parse(result)
 
@@ -147,7 +147,7 @@ const createTaskDiv= (task,tok)=>{
             redirect: 'follow'
           }
           
-          fetch(`http://localhost:3000/tasks/${id}`, requestOptionsDelete)
+          fetch(`https://ruchaw-tasks-manager.herokuapp.com/tasks/${id}`, requestOptionsDelete)
             .then(response => response.text())
             .then(result => console.log("task deleted"))
             .catch(error => console.log('error', error))
@@ -171,7 +171,7 @@ const createTaskDiv= (task,tok)=>{
             redirect: 'follow'
           }
 
-        fetch(`http://localhost:3000/tasks/${id}`, requestOptionsDone)
+        fetch(`https://ruchaw-tasks-manager.herokuapp.com/tasks/${id}`, requestOptionsDone)
         .then(response => response.text())
         .then(result => console.log("task done"))
         .catch(error => console.log('error', error))
@@ -291,7 +291,7 @@ modifyTaskButton.addEventListener("click",(e)=>{
             redirect: 'follow'
             }
         
-        fetch(`http://localhost:3000/tasks/${activeId}`, requestOptionsModify)
+        fetch(`https://ruchaw-tasks-manager.herokuapp.com/tasks/${activeId}`, requestOptionsModify)
         .then(response => response.text())
         .then(result => console.log("task modified"))
         .catch(error => console.log('error', error))

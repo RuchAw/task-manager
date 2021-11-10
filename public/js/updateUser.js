@@ -40,7 +40,7 @@ updateUsernameButton.addEventListener("click",(e)=>{
         redirect: 'follow'
     }
 
-    fetch("http://localhost:3000/users/me", requestOptions)
+    fetch("https://ruchaw-tasks-manager.herokuapp.com/users/me", requestOptions)
     .then(response => response.text())
     .then(result => console.log("username updated"))
     .catch(error => console.log('error', error))
@@ -76,7 +76,7 @@ ageModifyButton.addEventListener("click",(e)=>{
             redirect: 'follow'
         }
 
-        fetch("http://localhost:3000/users/me", requestOptions)
+        fetch("https://ruchaw-tasks-manager.herokuapp.com/users/me", requestOptions)
         .then(response => response.text())
         .then(result => console.log("age modified"))
         .catch(error => console.log('error', error))
@@ -115,7 +115,7 @@ updatePasswordButton.addEventListener("click",(e)=>{
                 redirect: 'follow'
             }
     
-            fetch("http://localhost:3000/users/me", requestOptions)
+            fetch("https://ruchaw-tasks-manager.herokuapp.com/users/me", requestOptions)
             .then(response => response.text())
             .then(result => console.log("password updated"))
             .catch(error => console.log('error', error))
@@ -140,7 +140,7 @@ logOutAllbutton.addEventListener("click",e =>{
         redirect: 'follow'
     }
 
-    fetch("http://localhost:3000/users/logoutALL", requestOptions)
+    fetch("https://ruchaw-tasks-manager.herokuapp.com/users/logoutALL", requestOptions)
         .then(response => response.text())
         .then(result => console.log("Disconnected from all devices"))
         .catch(error => console.log('error', error))
@@ -163,7 +163,7 @@ deleteUserButton.addEventListener("click", e=>{
         redirect: 'follow'
     }
 
-    fetch("http://localhost:3000/users/me", requestOptions)
+    fetch("https://ruchaw-tasks-manager.herokuapp.com/users/me", requestOptions)
         .then(response => response.text())
         .then(result => console.log("User deleted"))
         .catch(error => console.log('error', error))
